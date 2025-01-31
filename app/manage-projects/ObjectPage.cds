@@ -1,4 +1,4 @@
-using { EmployeeFinal.srv.ManageProjects as Service} from '../../srv/ProjectService';
+using { EmployeeFinal.srv.ManageProjects as Service} from '../../srv/projectService';
 
 annotate Service.ProjectsMD with @(
     UI:{
@@ -23,3 +23,47 @@ annotate Service.ProjectsMD with @(
         },
     }
 );
+
+annotate Service.Employee with @(
+    UI:{
+        LineItem #employee : [
+            {
+                $Type : 'UI.DataField',
+                Value : ID
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : firstName,
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : lastName,
+            },
+        ],
+    }
+){
+    @(
+        Common:{
+            Text : {
+                $value: empID,
+                ![@UI.TextArrangement] : #TextOnly,
+            },
+            Label : 'Employee ID',
+        }
+
+    )
+    ID;
+    @(
+        Common:{
+            Label : 'First Name',
+        }
+    )
+    firstName;
+    @(
+        Common:{
+            Label : 'Last Name',
+        }
+    )
+    lastName;
+};
+
