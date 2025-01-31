@@ -47,6 +47,7 @@ service ManageEmployee {
             ]}}
             action inActive(emp : $self);
             @(
+                requires:'admin',
                 Common:{
                     SideEffects : {
                         $Type : 'Common.SideEffectsType',
