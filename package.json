@@ -1,0 +1,67 @@
+{
+  "name": "EmployeeFinal",
+  "version": "1.0.0",
+  "description": "A simple CAP project.",
+  "repository": "<Add your repository here>",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "express": "^4"
+  },
+  "devDependencies": {
+    "@cap-js/cds-typer": ">=0.1",
+    "@cap-js/cds-types": "^0.9.0",
+    "@cap-js/sqlite": "^1",
+    "@sap/cds": "^8.7.0",
+    "@types/node": "^22.0.0",
+    "cds-plugin-ui5": "^0.9.3",
+    "typescript": "^5"
+  },
+  "scripts": {
+    "start": "cds-serve",
+    "watch": "cds-tsx w",
+    "watch-manage-employee": "cds watch --open cap.app.manageemployee/index.html?sap-ui-xx-viewCache=false --livereload false",
+    "watch-manage-learning": "cds watch --open manage-learning/webapp/index.html?sap-ui-xx-viewCache=false",
+    "watch-manage-projects": "cds watch --open manage-projects/webapp/index.html?sap-ui-xx-viewCache=false"
+  },
+  "imports": {
+    "#cds-models/*": "./@cds-models/*/index.js"
+  },
+  "cds": {
+    "requires": {
+      "db": {
+        "kind": "sqlite",
+        "credentials": {
+          "database": "emp.db"
+        }
+      },
+      "auth": {
+        "kind": "mocked",
+        "users": {
+          "admin": {
+            "password": "admin@123",
+            "roles": [
+              "admin",
+              "authenticated-user"
+            ]
+          },
+          "employee": {
+            "password": "emp@123",
+            "roles": [
+              "End-User",
+              "authenticated-user"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "workspaces": [
+    "app/*"
+  ],
+  "sapux": [
+    "app/manage-employee",
+    "app/manage-learning",
+    "app/manage-projects"
+  ]
+}

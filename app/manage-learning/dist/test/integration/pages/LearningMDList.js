@@ -1,0 +1,2 @@
+sap.ui.define(["sap/fe/test/ListReport"],function(n){"use strict";var e={actions:{},assertions:{}};return new n({appId:"cap.learning.managelearning",componentId:"LearningMDList",contextPath:"/LearningMD"},e)});
+//# sourceMappingURL=LearningMDList.js.map
