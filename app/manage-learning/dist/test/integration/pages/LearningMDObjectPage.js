@@ -1,0 +1,2 @@
+sap.ui.define(["sap/fe/test/ObjectPage"],function(e){"use strict";var n={actions:{},assertions:{}};return new e({appId:"cap.learning.managelearning",componentId:"LearningMDObjectPage",contextPath:"/LearningMD"},n)});
+//# sourceMappingURL=LearningMDObjectPage.js.map
