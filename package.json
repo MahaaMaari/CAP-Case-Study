@@ -24,7 +24,7 @@
     "typescript": "^5"
   },
   "scripts": {
-    "start": "cds-serve",
+    "start": "cds-ts serve",
     "watch": "cds-tsx w",
     "watch-manage-employee": "cds watch --open cap.app.manageemployee/index.html?sap-ui-xx-viewCache=false --livereload false",
     "watch-manage-learning": "cds watch --open manage-learning/webapp/index.html?sap-ui-xx-viewCache=false",
