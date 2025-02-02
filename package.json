@@ -63,6 +63,12 @@
       }
     }
   },
+  "jest":{
+    "preset": "ts-jest",
+    "globalSetup": "./test/setup.ts",
+    "testEnvironment": "node",
+    "testTimeout": 20000
+  },
   "workspaces": [
     "app/*"
   ],
