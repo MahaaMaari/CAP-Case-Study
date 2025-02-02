@@ -4,3 +4,6 @@ const {GET,POST,PATCH,axios,expect}=cds.test(__dirname+'/..');
 const EDIT=(url:string)=>{
     POST(url+'/ManageEmployee.draftEdit',{});
 }
+const SAVE=(url:string)=>{
+    POST(url+'/ManageEmployee.draftActivate');
+}
