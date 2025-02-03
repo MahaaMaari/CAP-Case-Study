@@ -17,7 +17,8 @@
     "types": [
       "jest",
       "node",
-      "@cap-js/cds-types"
+      "@cap-js/cds-types",
+      "@types/jest"
     ],
   },
   "include": [
