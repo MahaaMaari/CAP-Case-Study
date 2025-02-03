@@ -17,11 +17,11 @@
     "types": [
       "jest",
       "node",
-      "@cap-js/cds-types",
-      "@types/jest"
+      "@cap-js/cds-types"
     ],
   },
   "include": [
-    "./srv/**/*"
+    "./srv/**/*",
+    "./test/*"
   ]
 }
