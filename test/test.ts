@@ -7,3 +7,14 @@ const EDIT=(url:string)=>{
 const SAVE=(url:string)=>{
     POST(url+'/ManageEmployee.draftActivate');
 }
+axios.defaults.headers['content-type']='application/json';
+axios.defaults.auth={username:'admin',password:'admin@123'};
+
+describe('basic query',() => 
+    {
+        it('test',async()=>{
+            const data=SELECT.from(Employee);
+            expect(data).to.exist;
+        })
+     }
+)
