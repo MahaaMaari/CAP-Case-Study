@@ -1,0 +1,2 @@
+sap.ui.require(["sap/fe/test/JourneyRunner","cap/app/manageprojects/test/integration/FirstJourney","cap/app/manageprojects/test/integration/pages/ProjectsMDList","cap/app/manageprojects/test/integration/pages/ProjectsMDObjectPage"],function(e,t,a,r){"use strict";var e=new e({launchUrl:sap.ui.require.toUrl("cap/app/manageprojects")+"/index.html"});e.run({pages:{onTheProjectsMDList:a,onTheProjectsMDObjectPage:r}},t.run)});
+//# sourceMappingURL=opaTests.qunit.js.map

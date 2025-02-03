@@ -1,0 +1,2 @@
+sap.ui.define(["sap/fe/test/ListReport"],function(t){"use strict";var e={actions:{},assertions:{}};return new t({appId:"cap.app.manageprojects",componentId:"ProjectsMDList",contextPath:"/ProjectsMD"},e)});
+//# sourceMappingURL=ProjectsMDList.js.map
