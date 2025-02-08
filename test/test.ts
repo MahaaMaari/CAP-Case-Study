@@ -1,15 +1,30 @@
 import cds from '@sap/cds';
-import { Employee } from '#cds-models/employee/srv/EmployeeService/ManageEmployee';
 const {GET,POST,PATCH,axios,expect}=cds.test(__dirname+'/..');
+import Emp from '../srv/EmployeeService/Employee';
 const EDIT=(url:string)=>{
     POST(url+'/ManageEmployee.draftEdit',{});
 }
 const SAVE=(url:string)=>{
     POST(url+'/ManageEmployee.draftActivate');
 }
-describe('test1',()=>{
-    it('Test1',async()=>{
-        let data=await SELECT.from(Employee);
-        expect(data).to.exist;
+describe('Unit Tests for Employee',()=>{
+    const handler={
+        get(target:any,prop:string){
+            return target[prop];
+        }
+        }
+    let Employee:Emp;
+    beforeEach(()=>{
+        Employee=new Emp();
+    });
+    it('Generating Employee ID',async()=>{
+        const proxy=new Proxy(Employee,handler);
+        let req=new cds.Request({
+            event:'CREATE',
+            data:{empID:''}
+        });
+        await proxy.setEmployeeID(req);
+        expect(req.data.empID).exist;
+        expect(req.data.empID).to.have.length(10);
     })
 })
