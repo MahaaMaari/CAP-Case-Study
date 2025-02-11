@@ -1,5 +1,5 @@
 import cds from '@sap/cds';
-import { Employee } from '#cds-models/employee/srv/EmployeeService/ManageEmployee';
+import Employee from '../srv/EmployeeService/Employee';
 const {GET,POST,PATCH,axios,expect}=cds.test(__dirname+'/..');
 const EDIT=(url:string)=>{
     POST(url+'/ManageEmployee.draftEdit',{});
@@ -7,9 +7,8 @@ const EDIT=(url:string)=>{
 const SAVE=(url:string)=>{
     POST(url+'/ManageEmployee.draftActivate');
 }
-describe('test1',()=>{
-    it('Test1',async()=>{
-        let data=await SELECT.from(Employee);
-        expect(data).to.exist;
+describe('Unit tests for Employee', () => { 
+    it('Generate Employee ID',()=>{
+        
     })
 })

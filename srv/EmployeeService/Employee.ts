@@ -1,10 +1,8 @@
 import {Request} from '@sap/cds';
-import { Employee as E } from "#cds-models/employee/srv/EmployeeService/ManageEmployee";
-import { Learning as L } from "#cds-models/employee/srv/EmployeeService/ManageEmployee";
-import { LearningMD as Lmd } from "#cds-models/employee/srv/EmployeeService/ManageEmployee";
 import { courseType } from "#cds-models/employee/db";
 class Employee {
     public entities: any;
+    public testMode:boolean=false;
     constructor() {
     }
     public async beforeCreateActive(req:Request){
@@ -39,7 +37,6 @@ class Employee {
     }
     private async setEmployeeID(req:Request){
         let currentNumber:{currentNumber:number}=await SELECT.one.from('NumberRange').columns('currentNumber').where({name:'Employee'}) as {currentNumber:number};
-        console.log(currentNumber);
         if(currentNumber){
             req.data.empID=`EMP${currentNumber.currentNumber.toString().padStart(7,'0')}`;
             console.log(req.data.empID);
@@ -98,8 +95,8 @@ class Employee {
     };
     private async addLearnings(req: Request) {
         let { Learnings, LearningMD } = this.entities;
-        let learning: L[] = [];
-        let cources: Lmd[] = [];
+        let learning= [];
+        let cources= [];
         try {
             cources = await SELECT.from(LearningMD).where({ assignToType_code: courseType.Onboarding });
         }
