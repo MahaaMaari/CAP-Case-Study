@@ -1,5 +1,9 @@
 import {Request} from '@sap/cds';
+<<<<<<< HEAD
 import { courseType } from "#cds-models/employee/db";
+=======
+import { courseType } from '#cds-models/employee/db';
+>>>>>>> 5f08ee9057b28fbd3dc7f08ad76549fbd6fd0e66
 class Employee {
     public entities: any;
     public testMode:boolean=false;
@@ -39,7 +43,6 @@ class Employee {
         let currentNumber:{currentNumber:number}=await SELECT.one.from('NumberRange').columns('currentNumber').where({name:'Employee'}) as {currentNumber:number};
         if(currentNumber){
             req.data.empID=`EMP${currentNumber.currentNumber.toString().padStart(7,'0')}`;
-            console.log(req.data.empID);
             await UPDATE
             .entity('NumberRange')
             .set({currentNumber:currentNumber.currentNumber+1})
@@ -95,10 +98,15 @@ class Employee {
     };
     private async addLearnings(req: Request) {
         let { Learnings, LearningMD } = this.entities;
+<<<<<<< HEAD
         let learning= [];
         let cources= [];
+=======
+        let learning = [];
+        let cources = [];
+>>>>>>> 5f08ee9057b28fbd3dc7f08ad76549fbd6fd0e66
         try {
-            cources = await SELECT.from(LearningMD).where({ assignToType_code: courseType.Onboarding });
+            cources = await SELECT.from(LearningMD).where({ assignToType_code: 'OB' });
         }
         catch (error) {
             req.notify('No Learnings for onboarding exists');
