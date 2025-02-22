@@ -48,6 +48,11 @@ describe('basic OData',()=>{
         const {status,data}=await POST('/odata/v4/manage-employee/Employee',{
             ID:cds.utils.uuid()
         });
-        console.log(status);
+        expect(data.empID).to.not.be.null;
+        expect(data.empID).to.not.be.undefined;
+        expect(data.annualLeavesGranted).to.not.be.null;
+        expect(data.annualLeavesGranted).to.not.be.undefined;
+        expect(data.status_code).to.not.be.null;
+        expect(data.status_code).to.not.be.undefined;                
     })
 })

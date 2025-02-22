@@ -20,9 +20,11 @@ class Employee {
     }
     public async beforeCreateDraft(req:Request){
         await this.setEmployeeID(req);
+        await this.setStatus(req);
     }
     public async beforeUpdateDraft(req:Request){
         await this.validateBankAcc(req);
+        await this.setStatus(req);
     }
     public async afterDeleteActive(results:object[]|any,req:Request){
         await this.deleteLearnings(results,req);
