@@ -51,7 +51,6 @@ class Employee {
         let firstName = String(req.data.firstName).trim();
         let lastName = String(req.data.lastName).trim();
         let email = `${firstName}.${lastName}`;
-        console.log(email);
         let exists = await SELECT.from(this.entities?.Employee).columns(['emialID']).where({ emialID: { like: `%${email}%` } });
         console.log(exists);
         if (exists.length > 0) {
@@ -76,6 +75,12 @@ class Employee {
         req.data.emialID = `${email}@company.com`;
     }
     private async setStatus(req: Request) {
+        if(req.entity.includes('drafts')){
+            req.data.status_code = '01';
+            req.data.annualLeavesGranted=20;
+            req.data.deletable = false;
+            return;            
+        }
         req.data.status_code = '03';
         req.data.annualLeavesGranted=20;
         req.data.deletable = false;

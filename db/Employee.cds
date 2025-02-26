@@ -8,10 +8,26 @@ using {employee.db.Rating} from './Rating';
     empID
 ], }
 entity Employee : cuid {
-    empID:String(10);
-    firstName:String(20);
-    lastName:String(20);
-    emialID:String(40);
+    empID:String(10) @(
+        Common:{
+            Label : 'Employee ID',
+        }
+    );
+    firstName:String(20) @(
+        Common:{
+            Label : 'First Name',
+        }
+    );
+    lastName:String(20) @(
+        Common:{
+            Label : 'Last Name',
+        }
+    );
+    emialID:String(40) @(
+        Common:{
+            Label : 'Email ID',
+        }
+    );
     address:String;
     phoneNumber:String(10);
     status:Association to one EmpStatus;

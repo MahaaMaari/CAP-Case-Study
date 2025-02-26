@@ -100,7 +100,7 @@
           "id": "EmployeeList",
           "name": "sap.fe.templates.ListReport",
           "options": {
-            "settings": {
+            "settings": {              
               "contextPath": "/Employee",
               "variantManagement": "Page",
               "navigation": {
@@ -113,7 +113,24 @@
               "controlConfiguration": {
                 "@com.sap.vocabularies.UI.v1.LineItem": {
                   "tableSettings": {
-                    "type": "ResponsiveTable"
+                    "type": "ResponsiveTable",
+                    "quickVariantSelection":{
+                      "paths":[
+                        {
+                          "annotationPath":"com.sap.vocabularies.UI.v1.SelectionVariant#All"
+                        },
+                        {
+                          "annotationPath":"com.sap.vocabularies.UI.v1.SelectionVariant#Active"
+                        },
+                        {
+                          "annotationPath":"com.sap.vocabularies.UI.v1.SelectionVariant#Obsolete"
+                        },
+                        {
+                          "annotationPath":"com.sap.vocabularies.UI.v1.SelectionVariant#InPrep"
+                        }
+                      ],
+                      "showCounts":true
+                    }
                   }
                 }
               }
