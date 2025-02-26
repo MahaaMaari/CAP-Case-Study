@@ -57,7 +57,16 @@ describe('basic OData',()=>{
         const {status,data}=await POST('/odata/v4/manage-employee/Employee',{
             ID:cds.utils.uuid()
         });
+<<<<<<< HEAD
         console.log(status);
 >>>>>>> 5f08ee9057b28fbd3dc7f08ad76549fbd6fd0e66
+=======
+        expect(data.empID).to.not.be.null;
+        expect(data.empID).to.not.be.undefined;
+        expect(data.annualLeavesGranted).to.not.be.null;
+        expect(data.annualLeavesGranted).to.not.be.undefined;
+        expect(data.status_code).to.not.be.null;
+        expect(data.status_code).to.not.be.undefined;                
+>>>>>>> 8188c2c86a94cfbfa92a46857fb2db52bbaf47ee
     })
 })

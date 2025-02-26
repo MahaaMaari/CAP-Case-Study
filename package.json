@@ -7,12 +7,14 @@
   "private": true,
   "dependencies": {
     "@sap/cds": "^8.7.0",
-    "express": "^4"
+    "express": "^4",
+    "@sap/xssec": "^4"
   },
   "devDependencies": {
     "@cap-js/cds-typer": ">=0.1",
     "@cap-js/cds-types": "^0.9.0",
     "@cap-js/sqlite": "^1",
+    "@sap/cds-dk": "^8",
     "@types/jest": "^29.5.14",
     "@types/node": "^22.0.0",
     "axios": "^1.7.9",
@@ -35,32 +37,73 @@
     "#cds-models/*": "./@cds-models/*/index.js"
   },
   "cds": {
-    "requires": {
-      "db": {
-        "kind": "sqlite",
-        "credentials": {
-          "database": "emp.db"
-        }
-      },
-      "auth": {
-        "kind": "mocked",
-        "users": {
-          "admin": {
-            "password": "admin@123",
-            "roles": [
-              "admin",
-              "authenticated-user"
-            ]
-          },
-          "employee": {
-            "password": "emp@123",
-            "roles": [
-              "End-User",
-              "authenticated-user"
-            ]
+    "[development]": {
+      "requires": {
+        "auth": {
+          "kind": "mocked",
+          "users": {
+            "admin": {
+              "password": "admin@123",
+              "roles": [
+                "admin",
+                "authenticated-user"
+              ]
+            },
+            "employee": {
+              "password": "emp@123",
+              "roles": [
+                "End-User",
+                "authenticated-user"
+              ]
+            }
           }
         }
       }
+    },
+    "[production]": {
+      "requires": {
+        "db": {
+          "kind": "hana",
+          "credentials": {
+            "database": "emp.db"
+          }
+        },
+        "auth": {
+          "kind": "xsuaa"
+        }
+      }
+    },
+    "[hybrid]": {
+      "requires": {
+        "db": {
+          "kind": "sqlite",
+          "credentials": {
+            "database": "emp.db"
+          }
+        },
+        "auth": {
+          "kind": "mocked",
+          "users": {
+            "admin": {
+              "password": "admin@123",
+              "roles": [
+                "admin",
+                "authenticated-user"
+              ]
+            },
+            "employee": {
+              "password": "emp@123",
+              "roles": [
+                "End-User",
+                "authenticated-user"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "requires": {
+      "auth": "xsuaa"
     }
   },
   "jest": {
