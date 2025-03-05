@@ -1,1 +1,1 @@
-ID,empID,firstName,lastName,emialID,address,phoneNumber,status_code,bankeName,bankAccountNumber,bankCode,annualLeavesGranted,annualLeavesUsed,deletable
+ID,empID,firstName,lastName,emialID,address,phoneNumber,bankName,bankAccountNumber,bankCode,annualLeavesGranted,annualLeavesUsed,deletable

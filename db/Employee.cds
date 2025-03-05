@@ -31,7 +31,7 @@ entity Employee : cuid {
     address:String;
     phoneNumber:String(10);
     status:Association to one EmpStatus;
-    bankeName:String(30);
+    bankName:String(30);
     bankAccountNumber:String(30);
     bankCode:String(10);
     annualLeavesGranted:Int16;

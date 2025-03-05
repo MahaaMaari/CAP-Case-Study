@@ -95,7 +95,7 @@ annotate Service.Employee with @(UI: {
         Data : [
             {
                 $Type: 'UI.DataField',
-                Value: bankeName,
+                Value: bankName,
                 Label: 'Bank Name'
             },
             {
@@ -132,7 +132,7 @@ annotate Service.Employee with @(UI: {
 }, ) {
     address @UI.MultiLineText: true;
     @(mandatory)
-    bankeName;
+    bankName;
     @(mandatory)
     bankAccountNumber;
     @(mandatory)

@@ -24,8 +24,7 @@ class Employee {
         await this.setStatus(req);
     }
     public async beforeUpdateDraft(req:Request){
-        await this.validateBankAcc(req);
-        await this.setStatus(req);
+        await this.validateBankAccDetermination(req);
     }
     public async afterDeleteActive(results:object[]|any,req:Request){
         await this.deleteLearnings(results,req);
@@ -118,7 +117,7 @@ class Employee {
         };
         await INSERT.into(Learnings).entries(learning);
     }
-    private async validateBankAcc(req:Request){
+    private async validateBankAccDetermination(req:Request){
         let bankAcc=req.data.bankAccountNumber;
         console.log(bankAcc)
         if (bankAcc && isNaN(bankAcc)){
