@@ -1,5 +1,5 @@
 namespace employee.db;
-using { cuid } from '@sap/cds/common';
+using { cuid,managed } from '@sap/cds/common';
 using {sap.common.CodeList as CodeList};
 using {employee.db.Learning} from './Learning';
 using {employee.db.Project} from './Project';
@@ -7,7 +7,7 @@ using {employee.db.Rating} from './Rating';
 @Common : { SemanticKey  : [
     empID
 ], }
-entity Employee : cuid {
+entity Employee : cuid,managed {
     empID:String(10) @(
         Common:{
             Label : 'Employee ID',
